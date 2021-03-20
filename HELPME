@@ -1,0 +1,32 @@
+O PROJETO FOI DESENVOLVIDO UTILIZANDO COMO BASE SPRINGBOOT.
+FOI COLOCADO UM BANCO DE DADOS EMBARCADO (H2).
+EXISTE UM ARQUIVO CHAMADO APPLICATION.PROPERTIES QUE DEFINE A PORTA ONDE A APLICAÇÃO ESTA SENDO EXECUTADA (ATUALMENTE ESTÁ NA PORTA 9180).
+
+PARA EXECUÇÃO DO PROJETO:
+--> BASTA ABRIR A CLASSE APPLICATION.JAVA E EXECUTAR COM JAVA APPLICATION OU SPRINGBOOT APLICATION
+
+FUNCIONAMENTO DA APLICAÇÃO
+--> FOI CRIADO OS ENDPOINTS
+    --> /insert-store
+        --> MÉTODO: POST
+    --> /update-store
+        --> MÉTODO: POST
+    --> /search-store-name
+        --> MÉTODO: GET
+    --> /search-store-address
+        --> MÉTODO: GET
+        
+--> EXEMPLO DE COMO UTILIZAR CADA ENDPOINT
+    --> http://localhost:9180/cadastro-loja/v1/insert-store
+        --> {"storeName":"Mc Donald's", "storeAddress":"BR 040 - Quadra 01 lote CC 01 Conj Comercial CC01"}
+    --> http://localhost:9180/cadastro-loja/v1/update-store
+        --> {"id":8, "storeName":"Mc Donalds", "storeAddress":"BR 040 - Quadra 01 lote CC 01 Conj Comercial CC01, SN Parque das CacHoeiras, Valparaíso de Goiás - GO"}
+    --> http://localhost:9180/cadastro-loja/v1/search-store-name?param=mc
+        --> {"messageReturn": null, "cdReturn": null, "idStore": 1, "storeName": "Mc Donald's", "storeAddress": "BR 040 - Quadra 01 lote CC 01 Conj Comercial CC01, SN Parque das CacHoeiras, Valparaíso de Goiás - GO, 72870-001"}
+    --> http://localhost:9180/cadastro-loja/v1/search-store-address?param=040
+        --> {"messageReturn": null, "cdReturn": null, "idStore": 1, "storeName": "Mc Donald's", "storeAddress": "BR 040 - Quadra 01 lote CC 01 Conj Comercial CC01, SN Parque das CacHoeiras, Valparaíso de Goiás - GO, 72870-001"}
+        
+--> PARA ACESSAR O BANCO H2 E VERIFICAR OS DADOS INSERIDOS
+    --> LINK: http://localhost:9180/h2
+    --> JDBC URL: jdbc:h2:mem:acmedb
+    --> USUÁRIO: sa
